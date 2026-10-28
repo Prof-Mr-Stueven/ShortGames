@@ -29,12 +29,15 @@ li .n{flex:1;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:
 li svg{width:38px;height:38px}
 li.r1{border-color:#ffcd28;color:#ffcd28}li.r2{border-color:#cdd4e0;color:#cdd4e0}li.r3{border-color:#d68646;color:#d68646}
 small{opacity:.7}
+a.fol{display:inline-block;text-decoration:none;color:#fff;font:italic 900 6vmin system-ui;padding:.55em 1.3em;border-radius:99px;background:linear-gradient(135deg,#ff2d46,#ff5c8a);border:3px solid #ffc4cf;box-shadow:0 0 28px #ff2d4699;margin:10px;animation:pl 1.2s ease-in-out infinite}
+a.fol.s{font-size:4.2vmin;animation:none;margin:6px}
+@keyframes pl{50%{transform:scale(1.06)}}
 #mute{position:fixed;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:2px solid #fff5;background:#0005;color:#fff;font-size:20px;z-index:6}
 .lg{font-size:12px;opacity:.7;margin:2px 0}.lg a{color:#fff;pointer-events:auto}
 </style></head><body>
 <div id="logo">TikTok<br>Short Games</div>
 
-<div id="s0" class="scr on"><h1>TikTok<br>Short Games</h1><p>20 Sekunden. 1 Tap = 1 Punkt.</p><button class="b" id="go">START</button><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
+<div id="s0" class="scr on"><h1>TikTok<br>Short Games</h1><p>20 Sekunden. 1 Tap = 1 Punkt.</p><button class="b" id="go">START</button><a class="fol s" href="https://www.tiktok.com/@gen_breeze" target="_blank" rel="noopener noreferrer">+ Folge @gen_breeze</a><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
 
 <div id="s1" class="scr"><div id="time">20</div><div id="bar"><i></i></div>
 <button id="btn">TAP!</button><div id="score">0</div></div>
@@ -44,6 +47,7 @@ small{opacity:.7}
 <div id="s4" class="scr"><h1>ZEIT!</h1><div id="fin" style="font:italic 900 12vmin system-ui;color:#ffcd28"></div>
 <p style="font:italic 800 6vmin system-ui;margin-top:3vmin">TikTokShortGames</p><p style="font:italic 800 5vmin system-ui;color:#ffcd28">@gen_breeze</p>
 <p>Tägliche Skill-Challenges</p><p><b>Folge für Teil 2 &amp; die nächste Bestenliste!</b></p>
+<a class="fol" href="https://www.tiktok.com/@gen_breeze" target="_blank" rel="noopener noreferrer">+ FOLGEN auf TikTok</a>
 <button class="b" id="next">Weiter zur Bestenliste</button></div>
 <div id="s2" class="scr"><h1>Dein Name</h1><p>TikTok-Name (optional, kein echter Name nötig):</p>
 <input id="nm" maxlength="12" placeholder="@name" autocomplete="off">
@@ -51,7 +55,7 @@ small{opacity:.7}
 <small>Die Liste liegt nur auf diesem Gerät.</small></div>
 
 <div id="s3" class="scr"><h1>BESTENLISTE</h1><ol id="lb"></ol>
-<p><b>Folge @gen_breeze für Teil 2!</b></p><button class="b" id="again">Nochmal</button><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
+<p><b>Folge @gen_breeze für Teil 2!</b></p><a class="fol" href="https://www.tiktok.com/@gen_breeze" target="_blank" rel="noopener noreferrer">+ FOLGEN auf TikTok</a><button class="b" id="again">Nochmal</button><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
 
 <script>
 (function(){
