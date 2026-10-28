@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>TikTok Short Games – Tap</title>
+<meta name="description" content="20 Sekunden tippen, Highscore knacken. Kostenlos im Browser.">
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html,body{margin:0;height:100%;overflow:hidden;background:#150f2e;color:#fff;font-family:system-ui,sans-serif;touch-action:none}
+body{background:radial-gradient(ellipse at 50% 45%,#2b1d63,#150f2e 70%)}
+#logo{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font:italic 900 15vmin/1.05 system-ui,sans-serif;color:rgba(255,255,255,.07);transform:rotate(-12deg);pointer-events:none;z-index:0}
+.scr{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:16px 16px 60px;z-index:1;text-align:center}
+.scr.on{display:flex}
+h1{font-style:italic;font-weight:900;margin:.2em 0;font-size:9vmin}
+p{margin:.4em 0;opacity:.85}
+#time{font:italic 900 18vmin/1 system-ui;margin-bottom:6px}
+#bar{width:80%;height:10px;background:#ffffff33;border-radius:9px;overflow:hidden}
+#bar i{display:block;height:100%;width:100%;background:#ff3c50}
+#btn{width:62vmin;height:62vmin;max-width:420px;max-height:420px;border-radius:50%;border:6px solid #ffaab0;margin:5vmin 0;font:italic 900 12vmin system-ui;color:#fff;background:radial-gradient(circle at 38% 30%,#ff7a85,#ff1f3a 55%,#7a0010);box-shadow:0 14px 0 #6e0010,0 0 60px #ff2a44aa;touch-action:none}
+#btn.hit{transform:scale(.93) translateY(6px)}
+#score{font:italic 900 10vmin system-ui}
+.b{font:italic 800 5vmin system-ui;padding:.5em 1.4em;border:0;border-radius:99px;background:#ff2d46;color:#fff;margin:8px}
+#pause{position:fixed;left:0;right:0;bottom:0;height:52px;border:0;background:#00000066;color:#fff;font:italic 700 18px system-ui;z-index:5;display:none}
+#pause.on{display:block}
+input{font-size:18px;padding:10px 14px;border-radius:12px;border:2px solid #fff5;background:#0003;color:#fff;width:70%;max-width:320px;text-align:center}
+ol{list-style:none;padding:0;margin:8px 0;width:92%;max-width:420px}
+li{display:flex;gap:8px;align-items:center;background:#1e1c3be6;border:2px solid #5a5a8c;border-radius:14px;margin:4px 0;padding:6px 12px;font-weight:700;font-size:15px}
+li.t{padding:10px 12px;font-size:19px}
+li .n{flex:1;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+li svg{width:38px;height:38px}
+li.r1{border-color:#ffcd28;color:#ffcd28}li.r2{border-color:#cdd4e0;color:#cdd4e0}li.r3{border-color:#d68646;color:#d68646}
+small{opacity:.7}
+#mute{position:fixed;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:2px solid #fff5;background:#0005;color:#fff;font-size:20px;z-index:6}
+.lg{font-size:12px;opacity:.7;margin:2px 0}.lg a{color:#fff;pointer-events:auto}
+</style></head><body>
+<div id="logo">TikTok<br>Short Games</div>
+
+<div id="s0" class="scr on"><h1>TikTok<br>Short Games</h1><p>20 Sekunden. 1 Tap = 1 Punkt.</p><button class="b" id="go">START</button><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
+
+<div id="s1" class="scr"><div id="time">20</div><div id="bar"><i></i></div>
+<button id="btn">TAP!</button><div id="score">0</div></div>
+<button id="mute" aria-label="Ton an/aus">🔊</button>
+<button id="pause">⏸ Pause</button>
+
+<div id="s4" class="scr"><h1>ZEIT!</h1><div id="fin" style="font:italic 900 12vmin system-ui;color:#ffcd28"></div>
+<p style="font:italic 800 6vmin system-ui;margin-top:3vmin">TikTokShortGames</p><p style="font:italic 800 5vmin system-ui;color:#ffcd28">@gen_breeze</p>
+<p>Tägliche Skill-Challenges</p><p><b>Folge für Teil 2 &amp; die nächste Bestenliste!</b></p>
+<button class="b" id="next">Weiter zur Bestenliste</button></div>
+<div id="s2" class="scr"><h1>Dein Name</h1><p>TikTok-Name (optional, kein echter Name nötig):</p>
+<input id="nm" maxlength="12" placeholder="@name" autocomplete="off">
+<button class="b" id="save">Speichern</button>
+<small>Die Liste liegt nur auf diesem Gerät.</small></div>
+
+<div id="s3" class="scr"><h1>BESTENLISTE</h1><ol id="lb"></ol>
+<p><b>Folge @gen_breeze für Teil 2!</b></p><button class="b" id="again">Nochmal</button><p class="lg"><a href="datenschutz.html">Datenschutz</a> · <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> · <a href="impressum.html">Impressum</a></p><p class="lg">Nicht mit TikTok verbunden oder von TikTok unterstützt.</p></div>
+
+<script>
+(function(){
+"use strict";
+var D=20,KEY="tsg_top10",mem=[];
+function $(i){return document.getElementById(i)}
+function show(i){for(var k=0;k<5;k++)$("s"+k).classList.toggle("on",k===i);$("pause").classList.toggle("on",i===1)}
+function load(){try{var v=JSON.parse(localStorage.getItem(KEY));if(Array.isArray(v))return v}catch(e){}return mem}
+function store(v){mem=v;try{localStorage.setItem(KEY,JSON.stringify(v))}catch(e){}}
+var score=0,end=0,left=D*1000,running=false,paused=false,raf=0,last=0;
+function render(){var s=Math.max(0,left)/1000;beepSec(Math.ceil(s));$("time").textContent=Math.ceil(s);$("bar").firstChild.style.width=(left/(D*1000)*100)+"%";$("score").textContent=score}
+function tick(now){if(!running)return;if(!paused){left-=now-last;if(left<=0){left=0;render();return finish()}render()}last=now;raf=requestAnimationFrame(tick)}
+function start(){initAudio();lastSec=-1;score=0;left=D*1000;paused=false;running=true;$("pause").textContent="⏸ Pause";show(1);render();last=performance.now();raf=requestAnimationFrame(tick);startMusic();if(AC)tone(1175,AC.currentTime,0.25,"square",0.15)}
+function finish(){running=false;stopMusic();fanfare();$("fin").textContent=score+" Punkte";$("nm").value="";show(4)}
+
+/* ---------- Sound (alles synthetisch, keine Dateien) ---------- */
+var AC=null,master=null,muted=false,timer=null,nextT=0,step=0,lastSec=-1,SD=60/144/4;
+try{muted=localStorage.getItem("tsg_mute")==="1"}catch(e){}
+function initAudio(){if(AC)return;try{var C=window.AudioContext||window.webkitAudioContext;if(!C)return;AC=new C();master=AC.createGain();master.gain.value=muted?0:0.55;master.connect(AC.destination)}catch(e){AC=null}if(AC&&AC.state==="suspended")AC.resume()}
+function tone(f,t,d,type,vol,f2){if(!AC)return;var o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+d);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+0.008);g.gain.exponentialRampToValueAtTime(0.0001,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+0.03)}
+var CH=[[220,261.6,329.6],[174.6,220,261.6],[261.6,329.6,392],[196,246.9,293.7]],BASS=[110,87.3,130.8,98],ARP=[0,1,2,1,2,1,0,1];
+function playStep(n,t){var bar=Math.floor(n/16)%4,k=n%16,c=CH[bar];
+ if(k%4===0)tone(150,t,0.13,"sine",0.5,40);
+ if(k%2===0)tone(BASS[bar],t,SD*1.6,"sawtooth",0.16);
+ tone(c[ARP[k%8]]*2,t,SD*1.4,"square",0.045);
+ if(k%4===2)tone(6000,t,0.03,"square",0.012)}
+function sched(){if(!AC)return;while(nextT<AC.currentTime+0.25){playStep(step,nextT);nextT+=SD;step++}}
+function startMusic(){if(!AC)return;stopMusic();step=0;nextT=AC.currentTime+0.08;sched();timer=setInterval(sched,60)}
+function stopMusic(){if(timer){clearInterval(timer);timer=null}}
+function sfxTap(){if(!AC)return;var f=520+(score%12)*45;tone(f,AC.currentTime,0.09,"triangle",0.3);tone(f*2,AC.currentTime,0.05,"square",0.05)}
+function beepSec(sec){if(sec!==lastSec){lastSec=sec;if(AC&&running&&!paused&&sec>=1&&sec<=3)tone(880,AC.currentTime,0.18,"square",0.16)}}
+function fanfare(){if(!AC)return;var t=AC.currentTime+0.05;[523,659,784,1047].forEach(function(f,i){tone(f,t+i*0.11,0.5,"square",0.12);tone(f/2,t+i*0.11,0.5,"triangle",0.15)});tone(1047,t+0.5,0.9,"square",0.1);tone(1319,t+0.5,0.9,"triangle",0.12)}
+function chime(){if(!AC)return;var t=AC.currentTime;tone(988,t,0.15,"triangle",0.2);tone(1319,t+0.12,0.35,"triangle",0.2)}
+function setMute(m){muted=m;if(master)master.gain.value=m?0:0.55;$("mute").textContent=m?"🔇":"🔊";try{localStorage.setItem("tsg_mute",m?"1":"0")}catch(e){}}
+$("mute").textContent=muted?"🔇":"🔊";
+$("mute").addEventListener("click",function(){initAudio();setMute(!muted)});
+/* Tap: jeder Pointer-Down = genau 1 Punkt; Tippen in die Mitte pausiert nie */
+var b=$("btn");
+b.addEventListener("pointerdown",function(e){e.preventDefault();e.stopPropagation();if(!running||paused)return;score++;$("score").textContent=score;sfxTap();b.classList.add("hit");setTimeout(function(){b.classList.remove("hit")},70)});
+["contextmenu","dragstart","click"].forEach(function(n){document.addEventListener(n,function(e){if(e.target.closest&&e.target.closest("a"))return;e.preventDefault()})});
+$("pause").addEventListener("click",function(){if(!running)return;paused=!paused;this.textContent=paused?"▶ Weiter":"⏸ Pause";last=performance.now();if(AC){if(paused){stopMusic();AC.suspend()}else{AC.resume();startMusic()}}});
+function cup(c,d,l){return '<svg viewBox="0 0 40 40"><path d="M8 8h-3a1 1 0 0 0-1 1c0 6 3 9 7 9M32 8h3a1 1 0 0 1 1 1c0 6-3 9-7 9" fill="none" stroke="'+d+'" stroke-width="2.5"/><path d="M10 5h20v10a10 10 0 0 1-20 0z" fill="'+c+'"/><rect x="18" y="25" width="4" height="7" fill="'+d+'"/><rect x="11" y="32" width="18" height="5" rx="2" fill="'+d+'"/><rect x="12.5" y="7" width="2.5" height="9" rx="1" fill="'+l+'"/></svg>'}
+var C=[["#ffcd28","#a06900","#fff4aa"],["#cdd4e0","#69738a","#fff"],["#d68646","#78401a","#f7c896"]];
+function board(){var l=load(),o=$("lb");o.textContent="";
+ for(var i=0;i<10;i++){var li=document.createElement("li");li.className=(i<3?"t r"+(i+1):"");
+  var r=document.createElement("span");
+  if(i<3){r.innerHTML=cup(C[i][0],C[i][1],C[i][2])}else{r.textContent=(i+1)+"."}
+  var n=document.createElement("span");n.className="n";n.textContent=l[i]?l[i].n:"–";
+  var s=document.createElement("span");s.textContent=l[i]?l[i].s:"";
+  li.appendChild(r);li.appendChild(n);li.appendChild(s);o.appendChild(li)}
+ show(3)}
+$("save").addEventListener("click",function(){var n=$("nm").value.replace(/[\u0000-\u001f<>]/g,"").trim().slice(0,12)||"Anonym";
+ var l=load().slice();l.push({n:n,s:score});l.sort(function(a,b){return b.s-a.s});store(l.slice(0,10));chime();board()});
+$("next").addEventListener("click",function(){show(2)});
+$("go").addEventListener("click",start);$("again").addEventListener("click",start);
+})();
+</script></body></html>
